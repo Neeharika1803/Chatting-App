@@ -1,0 +1,75 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container */
+.container {
+    display: flex;
+    margin-top: 70px;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Left Menu */
+.left-menu {
+    width: 250px;
+    background: #ffffff;
+    padding: 15px;
+    transition: width 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.left-menu:hover {
+    background: #f0f0f0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Panel */
+.right-panel {
+    width: 200px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
