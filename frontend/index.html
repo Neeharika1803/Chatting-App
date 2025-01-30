@@ -3,25 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attractive Webpage</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <title>Responsive Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 15px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            margin-top: 60px;
+            padding: 20px;
+        }
+        .left-menu {
+            width: 250px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 50px 20px 20px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .collapsed {
+            transform: translateX(-250px);
+        }
+        .toggle-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            z-index: 1001;
+            background-color: #764ba2;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .show-btn {
+            position: fixed;
+            left: 10px;
+            top: 70px;
+            z-index: 1002;
+            background-color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+        }
+        .right-panel {
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #5643a7;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <nav class="navbar">🚀 Super Attractive Webpage</nav>
-
+    <!-- Layout Container -->
     <div class="container">
-        <aside class="left-menu">📂 Left Menu (Click to Collapse)</aside>
+        <!-- Left Menu -->
+        <aside class="left-menu" id="leftMenu">
+            <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+            <h3>Users</h3>
+            <ul>
+                <li><a href="#">User 1</a></li>
+                <li><a href="#">User 2</a></li>
+                <li><a href="#">User 3</a></li>
+            </ul>
+        </aside>
+        <button class="show-btn" id="showBtn" onclick="toggleMenu()">☰</button>
+
+        <!-- Main Content -->
         <main class="main-content">
-            <h2>Welcome to Your Internship Project</h2>
-            <p>Explore and build an amazing UI for your application.</p>
-            <button class="cta-button">Get Started</button>
+            <h1>Welcome to the Chat App!</h1>
+            <p>Connect with your friends and start chatting instantly.</p>
+            <button onclick="alert('Start chatting!')">Start Chat</button>
         </main>
-        <aside class="right-panel">📌 Right Panel</aside>
+
+        <!-- Right Panel -->
+        <aside class="right-panel">
+            <h3>Chat</h3>
+            <p>Messages will appear here once you select a user.</p>
+            <img src="2.png" alt="Chat Image">
+        </aside>
     </div>
 
-    <footer>Made with ❤️ by Your Name</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Chat Application. All rights reserved.</p>
+    </footer>
 
+    <!-- JavaScript for Collapsing Menu and Responsive Scaling -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('leftMenu');
+            var showBtn = document.getElementById('showBtn');
+            menu.classList.toggle('collapsed');
+            if (menu.classList.contains('collapsed')) {
+                showBtn.style.display = 'block';
+            } else {
+                showBtn.style.display = 'none';
+            }
+        }
+
+        function adjustScaling() {
+            const width = window.innerWidth;
+            let scale = 1;
+
+            if (width >= 992 && width <= 1600) scale = 0.9;
+            else if (width >= 700 && width < 767) scale = 0.8;
+            else if (width >= 600 && width < 700) scale = 0.75;
+            else if (width <= 600) scale = 0.5;
+
+            document.body.style.transform = 'scale(${scale})';
+            document.body.style.transformOrigin = "top left";
+        }
+
+        window.addEventListener("resize", adjustScaling);
+        window.addEventListener("load", adjustScaling);
+    </script>
 </body>
 </html>
